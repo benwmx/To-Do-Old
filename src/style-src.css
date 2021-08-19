@@ -15,10 +15,10 @@ i {
   overflow-y: auto;
   display: flex;
   flex-flow: column;
-  background-color: #e0b9b9;
   width: 70%;
   height: 70%;
   margin: 8% auto;
+  box-shadow: 5px 5px 20px grey;
 }
 
 .list-container .title {
@@ -44,7 +44,6 @@ i {
   margin-left: 20px;
   width: 80%;
   min-height: 45px;
-  background-color: #e0b9b9
 }
 
 .list-container .add button {
@@ -55,6 +54,7 @@ i {
 }
 
 .list-container .clear {
+  cursor: pointer;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -62,6 +62,8 @@ i {
   min-height: 50px;
   text-align: center;
   border-top: 1px solid gray;
+  background-color: #f6f6f6;
+  color: grey;
 }
 
 .completed {
