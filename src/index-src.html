@@ -5,11 +5,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/f654a6a150.js" crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
 
 <body>
-  <p>Hello</p>
+  <div id="list-container" class="list-container">
+    <div class="title">Today's To Do<i class="fas fa-sync-alt"></i></div>
+    <form class="add">
+      <input type="text" name="add-list" id="add-list" placeholder="add your list">
+      <button type="submit" class="submit" id="submit"><i class="fas fa-plus"></i></button>
+    </form>
+    <div class="list" id="list">
+
+    </div>
+    <div id="clear-list" class="clear">
+      <p>Clear all completed</p>
+    </div>
+  </div>
 </body>
 
 </html>
