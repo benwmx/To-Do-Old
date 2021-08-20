@@ -1,7 +1,11 @@
-// import showList from './showList.js';
+/* eslint-disable prefer-arrow-callback */
 import './style-src.css';
+import showList from './showList.js';
+import updateStatus from './updateStatus.js';
+import updateStorage from './updateStorage.js';
+import getStorage from './getStorage.js';
 
-const tasks = [
+let tasks = [
   {
     index: 0,
     description: 'First task',
@@ -19,23 +23,26 @@ const tasks = [
   },
 ];
 
-function showList(tasksList) {
-  const listDiv = document.getElementById('list');
-  for (let index = 0; index < tasksList.length; index += 1) {
-    const check = document.createElement('input');
-    const task = document.createElement('li');
-    const i = document.createElement('i');
-    const description = document.createElement('p');
-    check.type = 'checkbox';
-    check.checked = tasksList[index].completed;
-    i.className = 'fas fa-ellipsis-v';
-    description.className = 'description';
-    description.appendChild(check);
-    description.innerHTML += ` ${tasksList[index].description}`;
-    task.appendChild(description);
-    task.appendChild(i);
-    listDiv.appendChild(task);
-  }
-}
+if (getStorage().length === 0) updateStorage(tasks);
+else tasks = getStorage();
 
 showList(tasks);
+
+const listDiv = document.getElementById('list');
+listDiv.addEventListener('change', (event) => {
+  if (event.target !== event.currentTarget) {
+    updateStatus(tasks, parseInt(event.target.parentElement.parentElement.id, 10), true);
+    showList(tasks);
+    updateStorage(tasks);
+  }
+  event.stopPropagation();
+});
+
+listDiv.addEventListener('click', (event) => {
+  if (event.target !== event.currentTarget && event.target.className === 'fas fa-check') {
+    updateStatus(tasks, parseInt(event.target.parentElement.parentElement.id, 10), false);
+    showList(tasks);
+    updateStorage(tasks);
+  }
+  event.stopPropagation();
+});

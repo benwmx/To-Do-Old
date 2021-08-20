@@ -15,8 +15,8 @@ i {
   overflow-y: auto;
   display: flex;
   flex-flow: column;
-  width: 70%;
-  height: 70%;
+  width: 55%;
+  height: 55%;
   margin: 10% auto;
   box-shadow: 5px 5px 20px grey;
 }
@@ -71,6 +71,10 @@ i {
   color: gray;
 }
 
+.d-none {
+  display: none;
+}
+
 .list-container .list {
   overflow: auto;
   display: flex;
@@ -101,8 +105,14 @@ i {
   height: 1.2rem;
 }
 
-.list-container .list li i {
+.list-container .list li .description i {
+  color: green;
+  margin-right: 10px;
+}
+
+.list-container .list li .fa-trash {
   margin-right: 9px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 20px;
+  color: red;
 }
