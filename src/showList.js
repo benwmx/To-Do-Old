@@ -1,4 +1,4 @@
-export default function showList(tasksList) {
+const showList = (tasksList) => {
   const listDiv = document.getElementById('list');
   listDiv.innerHTML = '';
   for (let index = 0; index < tasksList.length; index += 1) {
@@ -24,4 +24,6 @@ export default function showList(tasksList) {
     task.appendChild(remove);
     listDiv.appendChild(task);
   }
-}
+};
+
+export { showList as default };

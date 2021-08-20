@@ -1,11 +1,11 @@
 /* eslint-disable prefer-arrow-callback */
-/* eslint-disable func-names */
+import './style-src.css';
 import showList from './showList.js';
 import updateStatus from './updateStatus.js';
-import './style-src.css';
 import updateStorage from './updateStorage.js';
+import getStorage from './getStorage.js';
 
-const tasks = [
+let tasks = [
   {
     index: 0,
     description: 'First task',
@@ -22,7 +22,12 @@ const tasks = [
     completed: false,
   },
 ];
+
+if (getStorage().length === 0) updateStorage(tasks);
+else tasks = getStorage();
+
 showList(tasks);
+
 const listDiv = document.getElementById('list');
 listDiv.addEventListener('change', (event) => {
   if (event.target !== event.currentTarget) {
