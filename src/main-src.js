@@ -1,11 +1,15 @@
+/* eslint-disable prefer-arrow-callback */
+/* eslint-disable func-names */
 import showList from './showList.js';
+import updateStatus from './updateStatus.js';
 import './style-src.css';
+import updateStorage from './updateStorage.js';
 
 const tasks = [
   {
     index: 0,
     description: 'First task',
-    completed: true,
+    completed: false,
   },
   {
     index: 1,
@@ -15,14 +19,25 @@ const tasks = [
   {
     index: 2,
     description: 'Third task',
-    completed: true,
+    completed: false,
   },
 ];
-
 showList(tasks);
-const tasksCheck = document.querySelectorAll('.check');
-tasksCheck.forEach((check)=>{
-  check.addEventListener('change', () => {
+const listDiv = document.getElementById('list');
+listDiv.addEventListener('change', (event) => {
+  if (event.target !== event.currentTarget) {
+    updateStatus(tasks, parseInt(event.target.parentElement.parentElement.id, 10), true);
+    showList(tasks);
+    updateStorage(tasks);
+  }
+  event.stopPropagation();
+});
 
-  });
+listDiv.addEventListener('click', (event) => {
+  if (event.target !== event.currentTarget && event.target.className === 'fas fa-check') {
+    updateStatus(tasks, parseInt(event.target.parentElement.parentElement.id, 10), false);
+    showList(tasks);
+    updateStorage(tasks);
+  }
+  event.stopPropagation();
 });

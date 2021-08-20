@@ -1,12 +1,13 @@
 export default function showList(tasksList) {
   const listDiv = document.getElementById('list');
+  listDiv.innerHTML = '';
   for (let index = 0; index < tasksList.length; index += 1) {
     const task = document.createElement('li');
     const remove = document.createElement('i');
     const description = document.createElement('p');
     if (tasksList[index].completed) {
       const checked = document.createElement('i');
-      checked.className = 'fas fa-check color-green';
+      checked.className = 'fas fa-check';
       description.appendChild(checked);
       description.className = 'completed';
     } else {

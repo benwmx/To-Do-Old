@@ -1,5 +1,5 @@
-export default function updateStatus(list, id, complted) {
-  list.foreach((task) => {
-    if (task.index === id) task.complted = complted;
+export default function updateStatus(list, id, completed) {
+  list.forEach((task) => {
+    if (task.index === id) task.completed = completed;
   });
 }
