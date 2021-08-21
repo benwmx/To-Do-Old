@@ -75,6 +75,11 @@ i {
   display: none;
 }
 
+#error {
+  color: red;
+  font-size: 0.8rem;
+}
+
 .list-container .list {
   overflow: auto;
   display: flex;

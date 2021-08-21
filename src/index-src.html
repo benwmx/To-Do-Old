@@ -11,11 +11,13 @@
 
 <body>
   <div id="list-container" class="list-container">
-    <div class="title">Today's To Do<i class="fas fa-sync-alt"></i></div>
-    <form class="add">
-      <input type="text" name="add-list" id="add-list" placeholder="add your list">
-      <button type="submit" class="submit" id="submit"><i class="fas fa-plus"></i></button>
-    </form>
+    <div class="title">Today's To Do <span id="error" class="d-none">The Description is Empty !!!</span><i
+        class="fas fa-sync-alt"></i>
+    </div>
+    <div class="add">
+      <input type="text" name="add-task" id="task-desc" placeholder="add your task">
+      <button class="submit" id="add"><i class="fas fa-plus"></i></button>
+    </div>
     <ul class="list" id="list">
 
     </ul>

@@ -4,27 +4,9 @@ import showList from './showList.js';
 import updateStatus from './updateStatus.js';
 import updateStorage from './updateStorage.js';
 import getStorage from './getStorage.js';
+import addTask from './addTask.js';
 
-let tasks = [
-  {
-    index: 0,
-    description: 'First task',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'Second task',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'Third task',
-    completed: false,
-  },
-];
-
-if (getStorage().length === 0) updateStorage(tasks);
-else tasks = getStorage();
+const tasks = getStorage();
 
 showList(tasks);
 
@@ -45,4 +27,11 @@ listDiv.addEventListener('click', (event) => {
     updateStorage(tasks);
   }
   event.stopPropagation();
+});
+
+const addTaskInput = document.getElementById('add');
+addTaskInput.addEventListener('click', () => {
+  addTask(tasks);
+  updateStorage(tasks);
+  showList(tasks);
 });
