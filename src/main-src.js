@@ -5,10 +5,13 @@ import updateStatus from './updateStatus.js';
 import updateStorage from './updateStorage.js';
 import getStorage from './getStorage.js';
 import addTask from './addTask.js';
+import removeTask from './removeTask.js';
 
-const tasks = getStorage();
+let tasks = getStorage();
 
 showList(tasks);
+
+// update the task status --------------------------------------------------
 
 const listDiv = document.getElementById('list');
 listDiv.addEventListener('change', (event) => {
@@ -29,9 +32,17 @@ listDiv.addEventListener('click', (event) => {
   event.stopPropagation();
 });
 
+// add a task ----------------------------------------------------------------
 const addTaskInput = document.getElementById('add');
 addTaskInput.addEventListener('click', () => {
   addTask(tasks);
   updateStorage(tasks);
   showList(tasks);
+});
+
+// remove a task
+listDiv.addEventListener('click', (event) => {
+  if (event.target !== event.currentTarget && event.target.className === 'fas fa-trash') {
+    tasks = removeTask(tasks, parseInt(event.target.parentElement.id, 10));
+  }
 });
