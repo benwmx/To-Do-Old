@@ -4,24 +4,34 @@ const showList = (tasksList) => {
   for (let index = 0; index < tasksList.length; index += 1) {
     const task = document.createElement('li');
     const remove = document.createElement('i');
+    const edit = document.createElement('i');
+    const descriptionContainer = document.createElement('div');
     const description = document.createElement('p');
+    const editDescription = document.createElement('input');
     if (tasksList[index].completed) {
       const checked = document.createElement('i');
       checked.className = 'fas fa-check';
-      description.appendChild(checked);
-      description.className = 'completed';
+      descriptionContainer.appendChild(checked);
     } else {
       const check = document.createElement('input');
       check.type = 'checkbox';
       check.className = 'check';
-      description.appendChild(check);
+      descriptionContainer.appendChild(check);
     }
+    edit.className = 'fas fa-edit d-none';
+    editDescription.type = 'text';
+    editDescription.id = 'edit-Description';
+    editDescription.className = 'edit-description d-none';
     task.id = tasksList[index].index;
     remove.className = 'fas fa-trash';
-    description.className += ' description';
+    descriptionContainer.className += 'description-container';
+    description.className = 'description';
     description.innerHTML += ` ${tasksList[index].description}`;
-    task.appendChild(description);
+    descriptionContainer.appendChild(description);
+    descriptionContainer.appendChild(editDescription);
+    task.appendChild(descriptionContainer);
     task.appendChild(remove);
+    task.appendChild(edit);
     listDiv.appendChild(task);
   }
 };

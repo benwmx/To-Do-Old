@@ -16,7 +16,7 @@ i {
   display: flex;
   flex-flow: column;
   width: 55%;
-  height: 55%;
+  height: 70%;
   margin: 10% auto;
   box-shadow: 5px 5px 20px grey;
 }
@@ -24,7 +24,6 @@ i {
 .list-container .title {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
   align-items: center;
   min-height: 50px;
   padding: 0 20px 0 20px;
@@ -36,7 +35,7 @@ i {
   align-items: center;
   justify-content: space-between;
   min-height: 50px;
-  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
 }
 
 .list-container .add input {
@@ -44,6 +43,7 @@ i {
   margin-left: 20px;
   width: 80%;
   min-height: 45px;
+  font-size: 1.3rem;
 }
 
 .list-container .add button {
@@ -66,6 +66,11 @@ i {
   color: grey;
 }
 
+.list-container .clear:active {
+  color: white;
+  background-color: red;
+}
+
 .completed {
   text-decoration: line-through;
   color: gray;
@@ -73,6 +78,11 @@ i {
 
 .d-none {
   display: none;
+}
+
+#error {
+  color: red;
+  font-size: 0.8rem;
 }
 
 .list-container .list {
@@ -89,30 +99,52 @@ i {
   justify-content: space-between;
   align-items: baseline;
   list-style: none;
-  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  min-height: 70px;
 }
 
-.list-container .list li .description {
+.list-container .list li .description-container {
+  display: flex;
   align-items: center;
-  min-width: 70%;
+  width: 80%;
   margin: 0;
   margin-left: 20px;
-  min-height: 50px;
+  min-height: 70px;
 }
 
-.list-container .list li .description input {
+.list-container .list li .description-container p {
+  margin: 10px;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+.list-container .list li .description-container .check {
   width: 1.2rem;
   height: 1.2rem;
 }
 
-.list-container .list li .description i {
+.list-container .list li .description-container i {
   color: green;
   margin-right: 10px;
 }
 
-.list-container .list li .fa-trash {
+.list-container .description-container .edit-description {
+  border: none;
+  width: 80%;
+  min-height: 65px;
+  font-size: 1.3rem;
+}
+
+.list-container .list li .fas {
   margin-right: 9px;
   font-size: 1.2rem;
-  padding: 20px;
+}
+
+.fa-trash {
   color: red;
+  padding: 10px;
+}
+
+.fa-edit {
+  color: green;
 }
